@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:prime_checker_flutter/controller/prime_provider.dart';
-import 'package:prime_checker_flutter/view/home_screen.dart';
+import 'package:prime_checker_flutter/view/mobile/home_mobile.dart';
 import 'package:provider/provider.dart';
-import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'controller/prime_provider.dart';
 
 void main() {
   runApp(
@@ -20,8 +19,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: FlexColorScheme.light(scheme: FlexScheme.material).toTheme, 
-      home: HomeScreen(),
+      title: 'Prime Checker',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: HomeMobile(),
     );
   }
 }
