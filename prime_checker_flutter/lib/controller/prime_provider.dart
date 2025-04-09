@@ -12,8 +12,7 @@ class PrimeProvider extends ChangeNotifier {
   }
 
   void checkPrime(String input) {
-    resetMessage(); // Clear previous messages
-
+    resetMessage();
     if (input.isEmpty) {
       resultText = "❌ Please enter a number!";
     } else {
@@ -25,21 +24,21 @@ class PrimeProvider extends ChangeNotifier {
       } else if (number <= 1) {
         resultText = "❌ $number is NOT a Prime Number.";
       } else {
-        resultText = isPrime(number) ? "✅ $number is a Prime Number." : "❌ $number is NOT a Prime Number.";
+        resultText = isPrime(number)
+            ? "✅ $number is a Prime Number."
+            : "❌ $number is NOT a Prime Number.";
       }
     }
     notifyListeners();
   }
 
   void generatePrimeNumbers(String startInput, String endInput) {
-    resetMessage(); // Clear previous messages
-
+    resetMessage();
     if (startInput.isEmpty || endInput.isEmpty) {
       resultText = "❌ Please enter both start and end values!";
     } else {
       int? start = int.tryParse(startInput);
       int? end = int.tryParse(endInput);
-
       if (start == null || end == null) {
         resultText = "❌ Invalid input! Please enter numbers.";
       } else if (start < 0 || end < 0) {
@@ -50,7 +49,9 @@ class PrimeProvider extends ChangeNotifier {
         resultText = "⚠️ The range is too large! Enter a smaller range.";
       } else {
         primes = generatePrimes(start, end);
-        resultText = primes.isNotEmpty ? "✅ Prime numbers from $start to $end:" : "❌ No prime numbers found in this range!";
+        resultText = primes.isNotEmpty
+            ? "✅ Prime numbers from $start to $end:"
+            : "❌ No prime numbers found in this range!";
       }
     }
     notifyListeners();
